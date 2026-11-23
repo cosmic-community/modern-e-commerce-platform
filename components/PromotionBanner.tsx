@@ -24,7 +24,11 @@ export default function PromotionBanner({ promotions }: PromotionBannerProps) {
     return null;
   }
   
-  const promotion = promotions[currentIndex];
+  const promotion = promotions[currentIndex] ?? promotions[0];
+  
+  if (!promotion) {
+    return null;
+  }
   
   return (
     <div className="relative bg-gradient-to-r from-purple-600 to-pink-600 text-white py-16 px-4">
